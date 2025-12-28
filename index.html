@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <!--
+    Main HTML structure for SimpleFlow
+    ساختار اصلی HTML برای SimpleFlow
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <title>SimpleFlow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#465FF1" />
+    <meta name="msapplication-navbutton-color" content="#465FF1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#465FF1" />
+    <meta name="title" content="" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="language" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons / آیکون‌ها -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" />
+    <link rel="manifest" href="./assets/images/site.webmanifest" />
+
+    <!-- Google Font / فونت گوگل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet / استایل‌ها -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/animations.css" />
+
+  </head>
+
+  <body>
+    <!-- Main container / کانتینر اصلی -->
+    <div class="container">
+      <div class="app-container">
+
+        <!-- Left side / سمت چپ -->
+        <section class="hero">
+          <div class="hero-content">
+            <!-- Hero main title / عنوان اصلی -->
+            <div>
+              <h1 class="hero-title">Welcome to SimpleFlow</h1>
+              <p class="hero-subtitle">Your Gateway to Effortless Management.</p>
+            </div>
+
+            <!-- Hero secondary content / محتوای فرعی -->
+            <div>
+              <h2 class="hero-section-title">Seamless Collaboration</h2>
+              <p class="hero-text">Effortlessly work together with your team in real-time.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right side / سمت راست -->
+        <section class="auth-panel">
+          <div class="auth-card">
+
+            <!-- Logo / لوگو -->
+            <div class="logo">
+              <img src="./assets/images/logo.svg" alt="SimpleFlow Logo" loading="eager" />
+            </div>
+
+            <!-- Tabs / تب‌ها -->
+            <div class="tabs">
+              <button class="tab active" type="button">Sign Up</button>
+              <button class="tab" type="button">Sign In</button>
+            </div>
+
+            <!-- Registration Form / فرم ثبت نام -->
+            <form id="registerForm" class="form-section active" novalidate>
+
+              <!-- Username / نام کاربری -->
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="Pick A Username" autocomplete="off" />
+                <p class="field-error" id="usernameError"></p>
+              </div>
+
+              <!-- Full Name / نام کامل -->
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" placeholder="Enter Your Name" autocomplete="name" />
+                <p class="field-error" id="fullNameError"></p>
+              </div>
+
+              <!-- Email / ایمیل -->
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Enter Your Email Address" autocomplete="email" />
+                <p class="field-error" id="emailError"></p>
+              </div>
+
+              <!-- Password / رمز عبور -->
+              <div class="form-group">
+                <div class="label-row">
+                  <label for="password">Password</label>
+                </div>
+
+                <div class="password-wrapper">
+                  <input id="password" name="password" type="password" placeholder="Enter Password" autocomplete="new-password" />
+                  <button type="button" class="toggle-password" id="togglePasswordSignup">Show</button>
+                </div>
+
+                <!-- Password Rules / قوانین رمز عبور -->
+                <div class="password-rules">
+                  <!-- Strength / قدرت رمز -->
+                  <p class="password-rule" id="ruleStrength">
+                    <span class="rule-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Password Strength: <span id="strengthLabel">Weak</span>
+                  </p>
+
+                  <!-- No Name/Email / نباید شامل نام یا ایمیل باشد -->
+                  <p class="password-rule" id="ruleNoNameEmail">
+                    <span class="rule-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Cannot contain your name or email address
+                  </p>
+
+                  <!-- Minimum Length / حداقل طول -->
+                  <p class="password-rule" id="ruleMinLength">
+                    <span class="rule-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    At least 8 characters
+                  </p>
+
+                  <!-- Number or Symbol / شامل عدد یا کاراکتر خاص -->
+                  <p class="password-rule" id="ruleNumberSymbol">
+                    <span class="rule-icon">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Contains a number or symbol
+                  </p>
+                </div>
+              </div>
+
+              <!-- Submit Button / دکمه ثبت نام -->
+              <button id="registerBtn" class="primary-btn" type="submit" disabled>Create Account</button>
+
+              <!-- Success Message / پیام موفقیت -->
+              <p class="form-message success" id="successMessage">Account Created Successfully!</p>
+
+              <!-- Disclaimer / توضیحات -->
+              <p class="disclaimer">
+                By signing up to create an account I accept Company's
+                <a href="#" class="inline-link">Terms of use</a> & <a href="#" class="inline-link">Privacy Policy</a>.
+              </p>
+            </form>
+
+            <!-- Login Form / فرم ورود -->
+            <form id="loginForm" class="form-section" novalidate>
+
+              <!-- Email / ایمیل -->
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" name="email" type="email" placeholder="Enter Your Email" autocomplete="email" />
+                <p></p>
+              </div>
+
+              <!-- Password / رمز عبور -->
+              <div class="form-group">
+                <div class="label-row">
+                  <label for="loginPassword">Password</label>
+                  <button type="button" class="link-button" id="forgotPasswordLink">Forgot Password?</button>
+                </div>
+
+                <div class="password-wrapper">
+                  <input id="loginPassword" name="password" type="password" placeholder="Enter Your Password" autocomplete="new-password" />
+                  <button type="button" class="toggle-password" id="togglePasswordLogin">Show</button>
+                </div>
+              </div>
+
+              <!-- Submit Button / دکمه ورود -->
+              <button id="loginBtn" class="primary-btn" type="submit" disabled>Sign In</button>
+
+              <!-- Success & Error Messages / پیام موفقیت و خطا -->
+              <p class="form-message success" id="loginSuccess"></p>
+              <p class="form-message error" id="loginError"></p>
+
+              <!-- Disclaimer / توضیحات -->
+              <p class="disclaimer">
+                By signing up to create an account I accept Company's
+                <a href="#" class="inline-link">Terms of use</a> & <a href="#" class="inline-link">Privacy Policy</a>.
+              </p>
+            </form>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- JS Script / فایل جاوااسکریپت -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

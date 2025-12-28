@@ -1,0 +1,270 @@
+/* =============================
+   Variables / متغیرها
+============================= */
+:root {
+  --accent: #465ff1; /* Main accent color / رنگ اصلی */
+  --text-main: #111827; /* Main text color / رنگ متن اصلی */
+  --border-subtle: rgba(70, 95, 241, 0.4); /* Input border / حاشیه ورودی */
+  --error: #dc2626; /* Error color / رنگ خطا */
+  --success: #15803d; /* Success color / رنگ موفقیت */
+  --input-bg: #ffffff; /* Input background / پس‌زمینه ورودی */
+  --disabled: #9ca3af; /* Disabled color / رنگ غیر فعال */
+  --radius-card: 20px; /* Card radius / شعاع کارت */
+  --radius-input: 8px; /* Input radius / شعاع ورودی */
+  --transition-fast: 0.18s ease-out; /* Transition speed / سرعت انتقال */
+  --font-main: 'Figtree', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; /* Main font / فونت اصلی */
+}
+
+/* =============================
+   Reset / بازنشانی
+============================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-main);
+  background-color: #ffffff; /* Page background / پس‌زمینه صفحه */
+  color: var(--text-main);
+}
+
+body {
+  min-height: 100dvh;
+  width: 100%;
+}
+
+/* Reset for all HTML elements / بازنشانی عناصر HTML */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,
+menu,nav,output,ruby,section,summary,time,mark,audio,video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* HTML5 display-role reset / نمایش HTML5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Lists / لیست‌ها */
+ol, ul { list-style: none; }
+
+/* Blockquotes / نقل قول‌ها */
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* Tables / جدول‌ها */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Text selection / انتخاب متن */
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* =============================
+   Layout / چیدمان
+============================= */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1920px;
+  width: 100%;
+  min-height: 100dvh;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.app-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  column-gap: 128px; /* Gap between left & right panels / فاصله بین پنل‌ها */
+}
+
+/* =============================
+   Left side / سمت چپ
+============================= */
+.hero {
+  width: 676px;
+  background-image: url(../images/Sign.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-card);
+  color: #fff;
+  padding-top: 108px;
+  padding-bottom: 136px;
+  min-height: 960px;
+}
+
+.hero-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.hero-title { font-size: 40px; font-weight: 900; line-height: 1.19; }
+.hero-subtitle { font-size: 22px; font-weight: 500; }
+.hero-section-title { font-size: 40px; font-weight: bold; }
+.hero-text { margin-top: 18px; font-size: 24px; max-width: 406px; }
+
+/* =============================
+   Right side / سمت راست
+============================= */
+.auth-panel { width: 358px; height: 100%; margin-top: auto; }
+.auth-panel:has(#loginForm.active) { margin-bottom: auto; }
+.auth-card { width: 100%; }
+
+/* Logo / لوگو */
+.logo { max-width: 165px; height: auto; margin-bottom: 32px; }
+.logo img { width: 100%; height: 100%; }
+
+/* Tabs / تب‌ها */
+.tabs {
+  display: inline-flex;
+  background-color: #ecf0ff;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #9c9aa5;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tab.active { background-color: #465ff1; color: #fff; }
+
+/* Forms / فرم‌ها */
+.form-section { display: none; }
+form.active { display: flex; flex-direction: column; gap: 16px; }
+
+/* Input groups / گروه‌های ورودی */
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+label { font-size: 16px; font-weight: 500; color: #26203b; }
+input {
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-subtle);
+  padding: 16px 15.5px;
+  font-size: 14px;
+  background-color: var(--input-bg);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(70, 95, 241, 0.1);
+  color: #26203b;
+}
+input::placeholder { color: #9c9aa5; }
+input:focus { border: 2px solid var(--accent); }
+
+/* Valid / Invalid states / وضعیت صحیح و ناصحیح */
+input.valid { border-color: var(--success); }
+input.invalid { border-color: var(--error); }
+#password { box-shadow: none; }
+
+.field-error { font-size: 14px; color: var(--error); font-weight: 500; }
+
+/* Password wrapper / رمز عبور */
+.password-wrapper { position: relative; }
+.password-wrapper input { width: 100%; padding-right: 60px; }
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 11px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+/* Rules / قوانین رمز عبور */
+.password-rule { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 12px; line-height: 1; color: #26203b; }
+.password-rule:first-child { margin: 0; }
+.password-rule .rule-icon { display: inline-flex; width: 16px; height: 16px; }
+.password-rule.valid { color: var(--success); }
+.password-rule.invalid { color: var(--error); }
+.password-rule .rule-icon { stroke: #465ff1; stroke-opacity: 0.25; }
+.password-rule.valid .rule-icon { stroke: var(--success); stroke-opacity: unset; }
+.password-rule.invalid .rule-icon { stroke: var(--error); stroke-opacity: unset; }
+
+/* Buttons / دکمه‌ها */
+.primary-btn {
+  margin-top: 32px;
+  width: 100%;
+  padding: 14.5px 0;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast), opacity var(--transition-fast);
+}
+.primary-btn:hover:not(:disabled) { transform: translateY(-1px); }
+.primary-btn:active:not(:disabled) { transform: translateY(0); }
+.primary-btn:disabled { cursor: not-allowed; box-shadow: none; opacity: 0.7; }
+
+/* Form messages / پیام فرم */
+.form-message { font-size: 16px; font-weight: 600; line-height: 1; margin-top: 8px; opacity: 0; text-align: center; }
+.form-message.success { color: var(--success); }
+.form-message.error { color: var(--error); }
+
+/* Disclaimer / توضیحات */
+.disclaimer { margin: 39px auto 0; font-size: 10px; color: #9c9aa5; text-align: center; max-width: 259px; }
+.inline-link { color: #26203b; text-decoration: none; }
+.inline-link:hover { text-decoration: underline; }
+
+/* Responsive / واکنش‌گرا */
+@media (max-width: 768px) { .hero { display: none; } }
+@media (max-width: 1024px) {
+  .app-container { column-gap: 60px; }
+  .hero { width: 480px; }
+  .auth-panel { width: 280px; }
+}
+@media (max-width: 1280px) { .hero { width: 500px; } }
